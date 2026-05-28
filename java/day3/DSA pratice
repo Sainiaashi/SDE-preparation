@@ -1,0 +1,56 @@
+//problem 1 leetcode 1672
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int m=accounts.length;
+        int n=accounts[0].length;
+        int ans=0;
+        for(int i=0;i<m;i++)
+        {
+            int sum=0;
+            for(int j=0;j<n;j++)
+            {
+                sum+=accounts[i][j];
+            }
+            ans=Math.max(ans,sum);
+        }
+        return ans;
+    }
+}
+//problem 2 leetcode 1480
+class Solution {
+    public int[] runningSum(int[] nums) {
+        int size=nums.length;
+        int [] arr=new int[size];
+        int sum=0;
+        for(int i=0;i<size;i++)
+        {
+          arr[i]=nums[i]+sum;
+          sum+=nums[i];
+        }
+        return arr;
+    }
+}
+
+//problem 3 leetcode 1432
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int max=0;
+        int n=candies.length;
+        List<Boolean> ans=new ArrayList<>();
+            for(int i=0;i<n;i++)
+            {
+               max=Math.max(max,candies[i]);
+            }
+         for(int i=0;i<n;i++)
+         {
+            if(candies[i]+extraCandies>=max)
+            {
+                ans.add(true);
+            }
+            else{
+                ans.add(false);
+            }
+         }
+        return ans;
+    }
+}
